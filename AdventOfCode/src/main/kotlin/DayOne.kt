@@ -1,5 +1,5 @@
 fun main() {
-    val pair: Pair<List<Int>, List<Int>> = formatTwoColumns("src/main/kotlin/DayOneA.txt")
+    val pair: Pair<List<Int>, List<Int>> = formatTwoColumns("src/main/resources/DayOne.txt")
     System.out.println("Q1a: ${listDifference(pair)}")
     System.out.println("Q1b: ${similarityScore(pair)}")
 }
