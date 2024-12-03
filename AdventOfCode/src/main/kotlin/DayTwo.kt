@@ -7,7 +7,6 @@ fun main() {
 fun countSafeLevels(levelsList: List<List<Int>>, allowOne: Boolean): Int =
     levelsList.count { if (allowOne) levelsAreSafeBarOne(it) else levelsAreSafe(it) }
 
-
 fun levelsAreSafeBarOne(levels: List<Int>):Boolean {
     return levelsAreSafe(levels) || levels.indices.map { i -> levelsAreSafeApartFromIndex(levels, i) }.any{ it }
 }
