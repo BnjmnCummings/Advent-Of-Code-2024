@@ -19,6 +19,9 @@ fun formatListOfLines(filename: String): List<List<Int>> {
         currentLine = it.split(" ").map { num -> num.toInt() }
         listOfLines.add(currentLine)
     }
-    System.out.println(listOfLines)
     return listOfLines
 }
+
+fun readToRawString(filename: String): String =
+    File(filename).readText()
+
