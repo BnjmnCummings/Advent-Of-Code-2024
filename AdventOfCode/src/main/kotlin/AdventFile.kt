@@ -22,6 +22,14 @@ fun formatListOfLines(filename: String): List<List<Int>> {
     return listOfLines
 }
 
+fun formatListOfStrings(filename: String): List<String> {
+    val listOfStrings: MutableList<String> = mutableListOf()
+    File(filename).forEachLine {
+        listOfStrings.add(it)
+    }
+    return listOfStrings
+}
+
 fun readToRawString(filename: String): String =
     File(filename).readText()
 
