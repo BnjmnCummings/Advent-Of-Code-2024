@@ -136,4 +136,21 @@ class DayFourTest {
         assertEquals(18, wordSearchCount(wordSearch, xmasMatcher))
     }
 
+    @Test
+    fun `xmasOccurrences returns the number of x-mas matches`() {
+        val wordSearch = listOf(
+            "MMMSXXMASM",
+            "MSAMXMSMSA",
+            "AMXSXMAAMM",
+            "MSAMASMSMX",
+            "XMASAMXAMM",
+            "XXAMMXXAMA",
+            "SMSMSASXSS",
+            "SAXAMASAAA",
+            "MAMMMXMMMM",
+            "MXMXAXMASX",
+        )
+        assertEquals(9, xmasOccurrences(wordSearch, part2Matcher))
+    }
+
 }

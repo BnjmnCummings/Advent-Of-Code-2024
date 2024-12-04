@@ -1,8 +1,10 @@
 val xmasMatcher = Regex("(XMAS|SAMX)")
 
+val part2Matcher = Regex("(MAS|SAM)")
+
 fun main() {
     val input = formatListOfStrings("src/main/resources/DayFour.txt")
-    System.out.println(wordSearchCount(input, xmasMatcher))
+    System.out.println(xmasOccurrences(input, part2Matcher))
 }
 
 fun wordSearchCount(stringMatrix: List<String>, matcher: Regex):Int {
@@ -101,9 +103,51 @@ fun getDownwardDiagonals(stringMatrix: List<String>): List<String> {
     return diagonalsList
 }
 
-
-
 fun countPatternsInString(target:String, matcher:Regex) : Int =
     target.windowed(4, 1).count { matcher.matches(it) }
 
+/**
+ *  part two
+ *  */
 
+fun xmasOccurrences(stringMatrix: List<String>, matcher: Regex): Int {
+    var total = 0
+    for (i in stringMatrix.first().indices) {
+        for (j in stringMatrix.indices) {
+            if(stringMatrix[i][j] == 'A') {
+                //check surrounding cross
+                total += if(checkCross(stringMatrix, i, j, matcher)) 1 else 0
+            }
+        }
+    }
+    return total
+}
+
+fun checkCross(stringMatrix: List<String>, row:Int, col:Int, matcher: Regex):Boolean {
+    //return if we are given an edge case
+    if (
+        row == 0 ||
+        row == stringMatrix.size - 1 ||
+        col == 0 ||
+        col == stringMatrix.first().length - 1)
+    {
+        return false;
+    }
+
+    var downDiag = ""
+    var j = col - 1
+    for (i in row - 1..row + 1) {
+        downDiag += stringMatrix[i][j]
+
+        j++
+    }
+
+    var upDiag = ""
+    j = col + 1
+    for (i in row - 1..row + 1) {
+        upDiag += stringMatrix[i][j]
+        j--
+    }
+
+    return matcher.matches(upDiag) && matcher.matches(downDiag)
+}
