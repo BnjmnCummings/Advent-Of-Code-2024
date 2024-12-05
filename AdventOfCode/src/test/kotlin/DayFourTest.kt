@@ -5,32 +5,32 @@ class DayFourTest {
     @Test
     fun `matches XMAS`() {
         assertEquals(
-            countPatternsInString("XMAS", xmasMatcher),
-            1
+            1,
+            countPatternsInString("XMAS", xmasMatcher)
         )
     }
 
     @Test
     fun `matches SAMX`() {
         assertEquals(
-            countPatternsInString("SAMX", xmasMatcher),
-            1
+            1,
+            countPatternsInString("SAMX", xmasMatcher)
         )
     }
 
     @Test
     fun `matches multiple`() {
         assertEquals(
-            countPatternsInString("SAMXXMASSAMX", xmasMatcher),
-            3
+            3,
+            countPatternsInString("SAMXXMASSAMX", xmasMatcher)
         )
     }
 
     @Test
     fun `matches multiple with overlapping letters`() {
         assertEquals(
-            countPatternsInString("SAMXMASAMX", xmasMatcher),
-            3
+            3,
+            countPatternsInString("SAMXMASAMX", xmasMatcher)
         )
     }
 
@@ -152,5 +152,4 @@ class DayFourTest {
         )
         assertEquals(9, xmasOccurrences(wordSearch, part2Matcher))
     }
-
 }

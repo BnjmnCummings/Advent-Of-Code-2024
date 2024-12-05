@@ -1,7 +1,15 @@
-fun main() {
-    val pair: Pair<List<Int>, List<Int>> = formatTwoColumns("src/main/resources/DayOne.txt")
-    System.out.println("Q1a: ${listDifference(pair)}")
-    System.out.println("Q1b: ${similarityScore(pair)}")
+import java.io.File
+
+fun formatTwoColumns(filename: String): Pair<List<Int>, List<Int>> {
+    val left: MutableList<Int> = mutableListOf()
+    val right: MutableList<Int> = mutableListOf()
+    var currentLine: List<String>
+    File(filename).forEachLine {
+        currentLine = it.split("   ")
+        left.add(currentLine[0].toInt())
+        right.add(currentLine[1].toInt())
+    }
+    return Pair(left, right)
 }
 
 /**
@@ -37,4 +45,10 @@ fun similarityScore(lists: Pair<List<Int>, List<Int>>): Int {
         totalSimilarityScore += i * (occurrenceMap[i] ?: 0)
     }
     return totalSimilarityScore
+}
+
+fun main() {
+    val pair: Pair<List<Int>, List<Int>> = formatTwoColumns("src/main/resources/DayOne.txt")
+    System.out.println("Q1a: ${listDifference(pair)}")
+    System.out.println("Q1b: ${similarityScore(pair)}")
 }

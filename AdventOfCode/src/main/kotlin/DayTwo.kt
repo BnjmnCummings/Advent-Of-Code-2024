@@ -1,7 +1,13 @@
-fun main() {
-    val data: List<List<Int>> = formatListOfLines("src/main/resources/DayTwo.txt")
-    System.out.println(countSafeLevels(data, true))
-    System.out.println(countSafeLevels(data, false))
+import java.io.File
+
+fun formatListOfLines(filename: String): List<List<Int>> {
+    val listOfLines: MutableList<List<Int>> = mutableListOf()
+    var currentLine: List<Int>
+    File(filename).forEachLine {
+        currentLine = it.split(" ").map { num -> num.toInt() }
+        listOfLines.add(currentLine)
+    }
+    return listOfLines
 }
 
 fun countSafeLevels(levelsList: List<List<Int>>, allowOne: Boolean): Int =
@@ -25,8 +31,16 @@ fun levelsAreSafe(levels: List<Int>):Boolean {
 fun getDifferenceFunction (increasing: Boolean): (Int,Int) -> Int =
     if(increasing) { x, y -> y - x} else { x, y -> x - y}
 
-/* constraint that each levels array has at least size 2 */
+/**
+ * constraint that each levels array has at least size 2
+ */
 fun levelsAreIncreasing(levels: List<Int>): Boolean {
     require(levels.size >= 2) { "Levels list must have at least two elements." }
     return levels[0] < levels[1]
+}
+
+fun main() {
+    val data: List<List<Int>> = formatListOfLines("src/main/resources/DayTwo.txt")
+    System.out.println(countSafeLevels(data, true))
+    System.out.println(countSafeLevels(data, false))
 }

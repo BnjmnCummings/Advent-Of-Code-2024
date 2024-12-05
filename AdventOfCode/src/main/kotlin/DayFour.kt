@@ -1,11 +1,15 @@
-val xmasMatcher = Regex("(XMAS|SAMX)")
+import java.io.File
 
-val part2Matcher = Regex("(MAS|SAM)")
-
-fun main() {
-    val input = formatListOfStrings("src/main/resources/DayFour.txt")
-    System.out.println(xmasOccurrences(input, part2Matcher))
+fun formatListOfStrings(filename: String): List<String> {
+    val listOfStrings: MutableList<String> = mutableListOf()
+    File(filename).forEachLine {
+        listOfStrings.add(it)
+    }
+    return listOfStrings
 }
+
+val xmasMatcher = Regex("(XMAS|SAMX)")
+val part2Matcher = Regex("(MAS|SAM)")
 
 fun wordSearchCount(stringMatrix: List<String>, matcher: Regex):Int {
     var total = 0
@@ -108,7 +112,7 @@ fun countPatternsInString(target:String, matcher:Regex) : Int =
 
 /**
  *  part two
- *  */
+ */
 
 fun xmasOccurrences(stringMatrix: List<String>, matcher: Regex): Int {
     var total = 0
@@ -150,4 +154,9 @@ fun checkCross(stringMatrix: List<String>, row:Int, col:Int, matcher: Regex):Boo
     }
 
     return matcher.matches(upDiag) && matcher.matches(downDiag)
+}
+
+fun main() {
+    val input = formatListOfStrings("src/main/resources/DayFour.txt")
+    System.out.println(xmasOccurrences(input, part2Matcher))
 }

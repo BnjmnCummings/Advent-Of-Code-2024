@@ -1,15 +1,16 @@
+import java.io.File
+
+fun readToRawString(filename: String): String =
+    File(filename).readText()
+
 val mulMatcher = Regex("mul\\(\\d+,\\d+\\)")
 val functionMatcher = Regex("(mul\\(\\d+,\\d+\\)|do\\(\\)|don't\\(\\))")
 val doMatcher = Regex("do\\(\\)")
 val dontMatcher = Regex("don't\\(\\)")
 
-fun main() {
-    val corruptedMemory: String = readToRawString("src/main/resources/DayThree.txt")
-    System.out.println(getSumOfMuls(corruptedMemory))
-    System.out.println(parseDosAndDonts(corruptedMemory))
-}
-
-/* part one */
+/**
+ *  part one
+ */
 fun getSumOfMuls(target:String) =
     getMuls(target)
         .map { parseMul(it) }
@@ -23,7 +24,9 @@ fun parseMul(mulString:String):Int {
     return "\\d+".toRegex().findAll(mulString).map {it.value.toInt()}.fold(1, Int::times)
 }
 
-/* part two */
+/**
+ *  part two
+ */
 fun getFunctions(target:String):List<String> =
     functionMatcher.findAll(target).map { it.value }.toList()
 
@@ -38,4 +41,10 @@ fun parseDosAndDonts(target:String): Int {
         }
     }
     return total
+}
+
+fun main() {
+    val corruptedMemory: String = readToRawString("src/main/resources/DayThree.txt")
+    System.out.println(getSumOfMuls(corruptedMemory))
+    System.out.println(parseDosAndDonts(corruptedMemory))
 }
