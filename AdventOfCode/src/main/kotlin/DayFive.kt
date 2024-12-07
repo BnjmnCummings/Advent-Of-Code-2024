@@ -25,10 +25,6 @@ fun questionFive(filename: String):QuestionFiveInput {
     return input
 }
 
-/**
- * we are certain that it will find one of these numbers
- * otherwise question would be unsolvable
- */
 fun sumMiddleNumbers(input: QuestionFiveInput) = getMiddleNumbersFromOrderedUpdates(input).sum()
 
 fun inCorrectOrder(update: List<Int>, rules: List<Pair<Int,Int>>):Boolean {
@@ -47,6 +43,10 @@ fun getMiddleNumbersFromOrderedUpdates(input: QuestionFiveInput): List<Int>  {
         .map { getMiddleNumber(it, input.rules) }
 }
 
+/**
+ * we are certain that it will find one of these numbers
+ * otherwise question would be unsolvable
+ */
 fun getMiddleNumber(update: List<Int>, rules: List<Pair<Int,Int>>): Int {
     //rounds down to the nearest integer
     val target = update.size / 2
