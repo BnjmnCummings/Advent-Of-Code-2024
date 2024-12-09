@@ -20,17 +20,6 @@ data class Guard(var position: Pair<Int, Int>, var direction: Direction) {
 }
 
 /**
- * returns a list of strings/ matrix of characters
- */
-fun getQuestionSixInput(filename: String): List<List<Char>> {
-    val listOfStrings: MutableList<List<Char>> = mutableListOf()
-    File(filename).forEachLine {
-        listOfStrings.add(it.toList())
-    }
-    return listOfStrings
-}
-
-/**
  * give a list of chars and a start index we need to iterate through them
  * and add the coords to coordSet of each '.' character
  *
@@ -62,7 +51,7 @@ fun patrol(grid: List<List<Char>>, guard: Guard):Boolean {
 
         // catch infinite loops
         iterations++
-        if(iterations >= 5000) {
+        if(iterations >= 10000) {
             return false
         }
     }
@@ -99,12 +88,22 @@ fun countInfiniteLoops(grid: List<List<Char>>):Int {
 
 }
 
-
 fun main() {
     val grid = getQuestionSixInput("src/main/resources/DaySix.txt")
-//    val guard = Guard(findGuard(grid)!!, Direction.UP)
-//    patrol(grid, guard)
+    val guard = Guard(findGuard(grid)!!, Direction.UP)
+//
     System.out.println(countInfiniteLoops(grid))
+}
+
+/**
+ * returns a list of strings/ matrix of characters
+ */
+fun getQuestionSixInput(filename: String): List<List<Char>> {
+    val listOfStrings: MutableList<List<Char>> = mutableListOf()
+    File(filename).forEachLine {
+        listOfStrings.add(it.toList())
+    }
+    return listOfStrings
 }
 
 fun findGuard(grid:List<List<Char>>):Pair<Int, Int>? {
