@@ -6,6 +6,9 @@ infix operator fun Pair<Int, Int>.plus(other:Pair<Int, Int>):Pair<Int, Int> =
 infix operator fun Pair<Int, Int>.minus(other:Pair<Int, Int>):Pair<Int, Int> =
     Pair(this.first - other.first, this.second - other.second)
 
+infix operator fun Pair<Int, Int>.times(k:Int):Pair<Int, Int> =
+    Pair(this.first * k , this.second * k)
+
 /**
  * returns a vector from A to B
  */
@@ -33,8 +36,17 @@ val antiNodeSet = hashSetOf<Pair<Int, Int>>()
  */
 fun addAntiNodePositions(a:Pair<Int,Int>, b:Pair<Int,Int>, grid:List<List<Char>>) {
     if(a != b) {
-        addToSet(b + calculateVector(a,b), grid)
-        addToSet(a - calculateVector(a,b), grid)
+        var i = 1;
+        while(addToSet(b + (calculateVector(a,b) * i), grid)) {
+            i++
+        }
+
+
+        var j = -1;
+        while(addToSet(a - (calculateVector(a,b) * j), grid)) {
+            j--
+        }
+
     }
 }
 
@@ -73,15 +85,18 @@ fun countAntiNodes(grid:List<List<Char>>) {
 
 /**
  * checks that point lies on the grid and adds it to our set of points
+ * @return true if the anti-node is on the grid
  */
-fun addToSet(antiNode:Pair<Int,Int>, grid: List<List<Char>>) {
+fun addToSet(antiNode:Pair<Int,Int>, grid: List<List<Char>>): Boolean {
     // check that our new anti-node lies on the grid
     if(
         antiNode.first in grid.indices &&
         antiNode.second in grid.first().indices
     ) {
         antiNodeSet.add(antiNode)
+        return true
     }
+    return false
 }
 
 fun main() {
