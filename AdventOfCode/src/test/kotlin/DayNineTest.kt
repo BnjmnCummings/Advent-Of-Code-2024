@@ -73,4 +73,40 @@ class DayNineTest {
             calculateCheckSum(defragmentDisk(parseDenseFormat("2333133121414131402")))
         )
     }
+
+    @Test
+    fun `calculate check sum with empty locations`() {
+        assertEquals(
+            2858,
+            calculateCheckSum(
+                listOf(
+                    "0", "0", "9", "9", "2", "1", "1", "1", "7", "7", "7", ".",
+                    "4", "4", ".", "3", "3", "3", ".", ".", ".", ".",
+                    "5", "5", "5", "5", ".", "6", "6", "6", "6", ".", ".", ".", ".", ".",
+                    "8", "8", "8", "8", ".", "."
+                )
+            )
+        )
+    }
+
+    @Test
+    fun `relocate file does nothing if theres not enough space`() {
+        val disk = mutableListOf(
+            "0", "0", "9", "9", "2", "1", "1", "1", "7", "7", "7", ".",
+            "4", "4", ".", "3", "3", "3", ".", ".", ".", ".",
+            "5", "5", "5", "5", ".", "6", "6", "6", "6", ".", ".", ".", ".", ".",
+            "8", "8", "8", "8", ".", "."
+        )
+
+        relocateFile(disk.lastIndex - 5, 4, disk)
+        assertEquals(
+            mutableListOf(
+                "0", "0", "9", "9", "2", "1", "1", "1", "7", "7", "7", ".",
+                "4", "4", ".", "3", "3", "3", "8", "8", "8", "8",
+                "5", "5", "5", "5", ".", "6", "6", "6", "6", ".", ".", ".", ".", ".",
+                ".", ".", ".", ".", ".", "."
+            ),
+            disk
+        )
+    }
 }
