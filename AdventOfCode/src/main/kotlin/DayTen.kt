@@ -69,6 +69,13 @@ fun getSurrounding(row:Int, col:Int, grid:List<List<Int>>):List<Pair<Int,Int>> {
 
 /* part 2 */
 
+/**
+ * Performs a depth first search on each 0 encountered.
+ * This version doesn't keep track of visited points but is free of cycles due to the requirement of increasing numbers.
+ * If a 9 is reachable then we increment the number of trailheads.
+ * @param grid the grid to be traversed
+ * @return the number of valid trailheads
+ */
 fun sumTrailheadScores(grid: List<List<Int>>):Int {
     var total = 0
 
