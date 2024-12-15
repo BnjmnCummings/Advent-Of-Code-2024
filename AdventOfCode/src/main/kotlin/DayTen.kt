@@ -26,6 +26,7 @@ fun sumTrailheads(grid: List<List<Int>>):Int {
         visitedSet.add(Pair(row, col))
         if(grid[row][col] == 9) {
             total++
+            return
         }
         for((newRow, newCol) in getSurrounding(row, col, grid)) {
             /* if they have a difference of one and we haven't visited */
@@ -66,7 +67,38 @@ fun getSurrounding(row:Int, col:Int, grid:List<List<Int>>):List<Pair<Int,Int>> {
     return squares
 }
 
+/* part 2 */
+
+fun sumTrailheadScores(grid: List<List<Int>>):Int {
+    var total = 0
+
+    fun dfs(row:Int, col:Int) {
+        /* part 2: don't add 9s to the visited set in order to allow for many pa*/
+        if(grid[row][col] == 9) {
+            total++
+            return
+        }
+        for((newRow, newCol) in getSurrounding(row, col, grid)) {
+            /* if they have a difference of one and we haven't visited */
+            if((grid[newRow][newCol] - grid[row][col]) == 1) {
+                dfs(newRow, newCol)
+            }
+        }
+    }
+
+    /* iterate through each square and start a dfs on each 0 encountered*/
+    for(i in grid.indices) {
+        for(j in grid.first().indices) {
+            if(grid[i][j] == 0) {
+                dfs(i, j)
+            }
+        }
+    }
+
+    return total
+}
+
 
 fun main() {
-    println(sumTrailheads(questionTen("src/main/resources/DayTen.txt")))
+    println(sumTrailheadScores(questionTen("src/main/resources/DayTen.txt")))
 }
