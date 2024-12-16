@@ -12,7 +12,7 @@ class QuestionFifteenInput(
 )
 
 /**
- * Collects the grid and instruction set for question 5.
+ * Collects the grid and instruction set for question 15.
  * @param filename the path to the desired file
  */
 fun questionFifteen(filename: String):QuestionFifteenInput {
