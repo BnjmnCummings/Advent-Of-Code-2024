@@ -6,8 +6,11 @@
  */
 fun nBlinks(seed: List<Long>, n:Int):List<Long> {
     var list = seed
+    var prevSize:Int
     for(i in 0..< n) {
+        prevSize = list.size
         list = blink(list)
+        println("${list.size - prevSize} new entries")
     }
     return list
 }
@@ -38,4 +41,5 @@ fun blink(list:List<Long>):List<Long> =
 fun main () {
     val seed:List<Long> = listOf(572556, 22, 0, 528, 4679021, 1, 10725, 2790)
     println(nBlinks(seed, 25).size)
+    println(nBlinks(seed, 75).size)
 }
