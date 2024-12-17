@@ -10,6 +10,7 @@ Then we are trying to find constants s and t that satisfy the equation:
     [ 94, 22 ] [ s ] = [ 8400 ]
     [ 22, 67 ] [ t ]   [ 5400 ]
 Which we can solve by inverting the matrix on the left */
+
 val A_MATCHER     = Regex("Button A: X\\+\\d+, Y\\+\\d+")
 val B_MATCHER     = Regex("Button B: X\\+\\d+, Y\\+\\d+")
 val PRIZE_MATCHER = Regex("Prize: X=\\d+, Y=\\d+")
@@ -25,6 +26,11 @@ data class ClawMachine(
     var b:     Vector = Vector(0.0, 0.0),
     var prize: Vector = Vector(0.0, 0.0)
 ) {
+    /**
+     * Calculates the solution to the system of equations for the number of times each button is pressed.
+     * @return vector solution
+     * @throws ArithmeticException if the matrix is singular, i.e. has determinant 0
+     */
     fun calculateButtonPresses():Vector {
         val matrix = listOf(
             listOf(a.x, b.x),
@@ -40,6 +46,10 @@ data class ClawMachine(
         }
     }
 
+    /**
+     * Calculates the price of the buttons pressed if the vector solution contains positive integers only.
+     * @return the price of the solution, 0 if there is no valid solution.
+     */
     fun calculateTokens():Long {
         try {
             val btnVector = calculateButtonPresses()
