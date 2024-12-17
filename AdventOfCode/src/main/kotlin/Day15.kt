@@ -150,7 +150,7 @@ fun widenGrid(grid:List<MutableList<Char>>):List<MutableList<Char>> =
 
 
 fun main() {
-    val input = questionFifteen("src/main/resources/DayFifteen.txt")
+    val input = questionFifteen("src/main/resources/Day15.txt")
     val startingPos = getRobotCoordinates(input.grid)!!
 
     simulatePacking(

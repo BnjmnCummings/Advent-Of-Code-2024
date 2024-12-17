@@ -14,7 +14,7 @@ fun formatTwoColumns(filename: String): Pair<List<Int>, List<Int>> {
 
 /**
  * assume that lists are the same size
- * */
+ */
 fun listDifference(lists: Pair<List<Int>, List<Int>>): Int {
     val leftCopy: MutableList<Int> = lists.first.toMutableList()
     val rightCopy: MutableList<Int> = lists.second.toMutableList()
@@ -48,7 +48,7 @@ fun similarityScore(lists: Pair<List<Int>, List<Int>>): Int {
 }
 
 fun main() {
-    val pair: Pair<List<Int>, List<Int>> = formatTwoColumns("src/main/resources/DayOne.txt")
+    val pair: Pair<List<Int>, List<Int>> = formatTwoColumns("src/main/resources/Day01.txt")
     System.out.println("Q1a: ${listDifference(pair)}")
     System.out.println("Q1b: ${similarityScore(pair)}")
 }

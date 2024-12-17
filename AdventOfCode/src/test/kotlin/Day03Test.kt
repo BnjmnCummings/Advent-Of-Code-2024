@@ -3,7 +3,7 @@ import org.junit.jupiter.api.assertThrows
 import java.lang.AssertionError
 import kotlin.test.assertEquals
 
-class DayThreeTest {
+class Day03Test {
     @Test
     fun `regex matches single instance `() {
         val target = "mul(1,1)"

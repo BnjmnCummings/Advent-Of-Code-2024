@@ -89,7 +89,7 @@ fun countInfiniteLoops(grid: List<List<Char>>):Int {
 }
 
 fun main() {
-    val grid = getQuestionSixInput("src/main/resources/DaySix.txt")
+    val grid = getQuestionSixInput("src/main/resources/Day06.txt")
     val guard = Guard(findGuard(grid)!!, Direction.UP)
 //
     System.out.println(countInfiniteLoops(grid))

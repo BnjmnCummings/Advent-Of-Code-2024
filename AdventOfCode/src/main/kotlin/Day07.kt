@@ -62,7 +62,7 @@ fun countValidTests(tests: List<TestData>):Long {
 }
 
 fun main() {
-    println(countValidTests(questionSeven("src/main/resources/DaySeven.txt")))
+    println(countValidTests(questionSeven("src/main/resources/Day07.txt")))
 }
 
 /**

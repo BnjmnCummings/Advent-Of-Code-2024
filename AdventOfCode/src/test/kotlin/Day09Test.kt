@@ -1,7 +1,7 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class DayNineTest {
+class Day09Test {
     @Test
     fun `parseDenseDisk returns a list representing the fragmented disk`() {
         assertEquals(

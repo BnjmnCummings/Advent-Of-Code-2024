@@ -157,6 +157,6 @@ fun checkCross(stringMatrix: List<String>, row:Int, col:Int, matcher: Regex):Boo
 }
 
 fun main() {
-    val input = formatListOfStrings("src/main/resources/DayFour.txt")
+    val input = formatListOfStrings("src/main/resources/Day04.txt")
     System.out.println(xmasOccurrences(input, part2Matcher))
 }

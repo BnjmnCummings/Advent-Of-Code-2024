@@ -112,5 +112,5 @@ fun questionThirteen(filename: String): MutableList<ClawMachine> {
 }
 
 fun main() {
-    println(sumTokenPrices(questionThirteen("src/main/resources/DayThirteen.txt")))
+    println(sumTokenPrices(questionThirteen("src/main/resources/Day13.txt")))
 }

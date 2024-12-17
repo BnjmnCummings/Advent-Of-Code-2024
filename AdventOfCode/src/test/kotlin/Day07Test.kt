@@ -3,7 +3,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class DaySeven {
+class Day07Test {
     @Test
     fun `isValid returns true if and only if there is a permutation of sum and mul`() {
         assertTrue(

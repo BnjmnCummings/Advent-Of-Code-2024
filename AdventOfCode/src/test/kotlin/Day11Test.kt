@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class DayElevenTest {
+class Day11Test {
     @Test
     fun `blink turns 0 to 1 `() {
         assertEquals(

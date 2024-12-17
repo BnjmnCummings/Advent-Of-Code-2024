@@ -82,8 +82,8 @@ fun sumUnorderedMiddleNumbers(input: QuestionFiveInput) = getMiddleNumbersFromUn
  * hence, the middle element will be the only number to have floor(n/2) numbers succeeding it
  */
 fun main() {
-    questionFive("src/main/resources/DayFive.txt")
+    questionFive("src/main/resources/Day05.txt")
     System.out.println(
-        sumUnorderedMiddleNumbers(questionFive("src/main/resources/DayFive.txt"))
+        sumUnorderedMiddleNumbers(questionFive("src/main/resources/Day05.txt"))
     )
 }

@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertAll
 import kotlin.test.assertEquals
 
-class DayThirteenTest {
+class Day13Test {
     @Test
     fun `determinant calculates the determinant of a 2x2 matrix`() {
         assertEquals(

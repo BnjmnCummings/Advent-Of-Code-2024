@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class DayTenTest {
+class Day10Test {
     @Test
     fun `sumTrailheads() performs a topological dfs on a given grid`() {
         val grid = listOf(

@@ -3,7 +3,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class DayFiveTest {
+class Day05Test {
     var testRules = listOf(
         Pair(47,53),
         Pair(97,13),

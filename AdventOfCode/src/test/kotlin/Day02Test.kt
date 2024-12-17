@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFalse
 
-class DayTwoTest {
+class Day02Test {
 
     @Test
     fun `only works removing the correct index`() {

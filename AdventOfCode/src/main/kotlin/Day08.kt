@@ -100,7 +100,7 @@ fun addToSet(antiNode:Pair<Int,Int>, grid: List<List<Char>>): Boolean {
 }
 
 fun main() {
-    val grid = getQuestionEightInput("src/main/resources/DayEight.txt")
+    val grid = getQuestionEightInput("src/main/resources/Day08.txt")
     countAntiNodes(grid)
     System.out.println(antiNodeSet.size)
 }

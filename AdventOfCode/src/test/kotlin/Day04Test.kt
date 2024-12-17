@@ -1,7 +1,7 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class DayFourTest {
+class Day04Test {
     @Test
     fun `matches XMAS`() {
         assertEquals(

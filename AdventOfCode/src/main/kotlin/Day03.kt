@@ -44,7 +44,7 @@ fun parseDosAndDonts(target:String): Int {
 }
 
 fun main() {
-    val corruptedMemory: String = readToRawString("src/main/resources/DayThree.txt")
+    val corruptedMemory: String = readToRawString("src/main/resources/Day03.txt")
     System.out.println(getSumOfMuls(corruptedMemory))
     System.out.println(parseDosAndDonts(corruptedMemory))
 }

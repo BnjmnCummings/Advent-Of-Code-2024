@@ -3,7 +3,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class DaySixTest {
+class Day06Test {
     @Test
     fun `turn90Degrees changes direction successfully`() {
         val guard = Guard(Pair(0,0), Direction.UP)

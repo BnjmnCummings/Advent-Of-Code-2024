@@ -1,7 +1,7 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class DayEightTest {
+class Day08Test {
     val grid = listOf(
         listOf('.', '.', '.', '.', '.'),
         listOf('.', '.', '#', '.', '.'),

@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class DayFifteenTest {
+class Day15Test {
     @Test
     fun `gets correct input`() {
         val dummyGrid = listOf("##########" ,

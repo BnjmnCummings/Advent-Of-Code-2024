@@ -40,7 +40,7 @@ fun levelsAreIncreasing(levels: List<Int>): Boolean {
 }
 
 fun main() {
-    val data: List<List<Int>> = formatListOfLines("src/main/resources/DayTwo.txt")
+    val data: List<List<Int>> = formatListOfLines("src/main/resources/Day02.txt")
     System.out.println(countSafeLevels(data, true))
     System.out.println(countSafeLevels(data, false))
 }

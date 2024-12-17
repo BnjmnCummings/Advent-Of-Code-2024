@@ -124,7 +124,7 @@ fun relocateFile(index: Int, fileSize: Int, disk: MutableList<String>) {
 }
 
 fun main() {
-    val denseDisk = readToRawString("src/main/resources/DayNine.txt")
+    val denseDisk = readToRawString("src/main/resources/Day09.txt")
     val disk = parseDenseFormat(denseDisk).toMutableList()
     optimiseDisk(disk)
     System.out.println(calculateCheckSum(disk))

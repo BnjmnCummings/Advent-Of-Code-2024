@@ -107,5 +107,5 @@ fun sumTrailheadScores(grid: List<List<Int>>):Int {
 
 
 fun main() {
-    println(sumTrailheadScores(questionTen("src/main/resources/DayTen.txt")))
+    println(sumTrailheadScores(questionTen("src/main/resources/Day10.txt")))
 }
