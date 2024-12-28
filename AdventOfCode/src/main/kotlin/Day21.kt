@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.Bool
-
 val numKeypadMap: HashMap<Char, Pair<Int, Int>> = hashMapOf(
     'A' to Pair(3,2),
     '0' to Pair(3,1),

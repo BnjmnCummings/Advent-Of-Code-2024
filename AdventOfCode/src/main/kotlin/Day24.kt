@@ -118,10 +118,6 @@ fun getOutput(map: Map<String, Node>): Long {
     return total
 }
 
-/**
- * Main entry point of the program.
- * Initializes the computation graph from a file and prints the results.
- */
 fun main() {
     val map = initialiseGraph("src/main/resources/Day24.txt")
     println(map.size)
