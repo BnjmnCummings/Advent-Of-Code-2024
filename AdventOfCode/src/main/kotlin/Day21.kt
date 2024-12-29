@@ -1,3 +1,6 @@
+/**
+ * Maps keypad characters to their corresponding positions on the numeric keypad.
+ */
 val numKeypadMap: HashMap<Char, Pair<Int, Int>> = hashMapOf(
     'A' to Pair(3,2),
     '0' to Pair(3,1),
@@ -12,6 +15,9 @@ val numKeypadMap: HashMap<Char, Pair<Int, Int>> = hashMapOf(
     '9' to Pair(0,2),
 )
 
+/**
+ * Maps directional characters to their corresponding movements on the keypad.
+ */
 val dirKeypadMap: HashMap<Char, Pair<Int, Int>> = hashMapOf(
     'A' to Pair(0,2),
     '^' to Pair(0,1),
@@ -20,30 +26,38 @@ val dirKeypadMap: HashMap<Char, Pair<Int, Int>> = hashMapOf(
     '>' to Pair(1,2),
 )
 
-fun calculateComplexity(code:String):Int {
+/**
+ * Calculates the complexity of a given code sequence.
+ * @param code The input code sequence to analyze.
+ * @return An integer representing the complexity of the code sequence.
+ */
+fun calculateComplexity(code: String): Int {
     var sequence = getSequence(code, numKeypadMap)
     sequence = getSequence(getSequence(sequence, dirKeypadMap), dirKeypadMap)
     return code.take(3).toInt() * sequence.length
 }
 
 /**
- *
+ * Extracts a sequence of keypad characters from a given string.
+ * @param buttons The input string containing keypad characters.
+ * @param map The mapping of characters to their positions on the keypad.
+ * @return A string representing the extracted sequence of keypad characters.
  */
-fun getSequence(buttons:String, map:Map<Char, Pair<Int, Int>>):String =
+fun getSequence(buttons: String, map: Map<Char, Pair<Int, Int>>): String =
     getMinSequence(
         map['A']!!, buttons.map { map[it]!! }
     )
 
 /**
- * Function that takes in a list of coordinates
- * and returns instructions to press the button at each one
+ * Generates the minimum sequence of instructions to press buttons at given coordinates.
+ * @param start The starting position as a pair of integers (row, column).
+ * @param buttons A list of target button positions as pairs of integers (row, column).
+ * @return A string representing the minimum sequence of instructions.
  */
-fun getMinSequence(start:Pair<Int, Int>, buttons: List<Pair<Int, Int>>):String {
+fun getMinSequence(start: Pair<Int, Int>, buttons: List<Pair<Int, Int>>): String {
     var current: Pair<Int, Int> = start
     var result = ""
     for(button in buttons) {
-        /* get the difference */
-
         val (dRow, dCol) = button - current
         val updo = if(dRow >= 0) {
             "v".repeat(dRow)
@@ -56,8 +70,6 @@ fun getMinSequence(start:Pair<Int, Int>, buttons: List<Pair<Int, Int>>):String {
             "<".repeat(-dCol)
         }
 
-        /* < before v before ^ before > */
-        /* if left, then left before up and down */
         result += if(dCol < 0) {
             leri + updo + "A"
         } else {
